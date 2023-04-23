@@ -12,10 +12,10 @@ pip3 install -r piREQ.txt
 then
 
 python3 piDetect.py
------------------------------
+
 
 "MAC"
-
+-----------------------------
 pip install -r macREQ.txt 
 
 or 
