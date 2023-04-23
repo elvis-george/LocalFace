@@ -5,8 +5,6 @@
 1. Add `.jpg` photos of valid users to the `valid_photoID` repository.
 2. Modify the python dictionary in the `Detect.py` files to add a single dictionary entry for each user. Be sure to include the working directory path to the user photo/photos. Including multiple photos can increase detection reliability.
 
-**Note**: `.jpg` files should be in the main repository, not a subfolder.
-
 ## Running the Program
 
 ### Raspberry Pi
