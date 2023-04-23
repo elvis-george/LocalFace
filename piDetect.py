@@ -28,6 +28,21 @@ camera.resolution = (640, 480)  # Set the camera resolution to 640x480 pixels
 camera.framerate = 30  # Set the camera frame rate to 30 frames per second
 rawCapture = PiRGBArray(camera, size=(640, 480))  # Create a PiRGBArray object to store frames as NumPy arrays
 
+
+# Loop through allowed_users dictionary, load images, and calculate face encodings
+for name, image_files in allowed_users.items():
+    for image_file in image_files:
+        image = face_recognition.load_image_file(image_file)  # Load image file
+        face_encodings_list = face_recognition.face_encodings(image)  # Calculate face encodings
+
+        if not face_encodings_list:  # Check if the list is empty
+            print(f"No face detected in {image_file}")
+            continue
+
+        face_encoding = face_encodings_list[0]
+        known_face_encodings.append(face_encoding)  # Add the face encoding to the list
+        known_face_names.append(name)  # Add the user name to the list
+
 # Start an infinite loop that captures video frames continuously
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     frame = frame.array  # Convert the captured frame from PiRGBArray to a NumPy array
