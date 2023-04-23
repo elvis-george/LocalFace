@@ -1,6 +1,6 @@
 # FaceDetect
 
-
+modify the python dictionary to add users and user picture/pictures 
 
 "PI"
 -----------------------------
