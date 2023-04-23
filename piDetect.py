@@ -11,6 +11,7 @@ allowed_users = {
         "/Users/localhost/ElvisDetect/elvisDetect/user4.jpg"
     ]
 }
+#bug fix
 
 known_face_encodings = []
 known_face_names = []
