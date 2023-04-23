@@ -23,6 +23,7 @@ allowed_users = {
 
 known_face_encodings = []  # List to store the face encodings of allowed users
 known_face_names = []  # List to store the names of allowed users
+
 camera = PiCamera()  # Create a PiCamera object to interact with the Raspberry Pi camera
 camera.resolution = (640, 480)  # Set the camera resolution to 640x480 pixels
 camera.framerate = 30  # Set the camera frame rate to 30 frames per second
@@ -66,7 +67,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
             print(f"Simulated access granted for {name}")  # Print the name of the granted user
             # GPIO.output(relay_pin, 1)  # Set the relay_pin output to 1 (on) (Not needed for testing)
-            sleep(1)  # Wait for 1 second
+            sleep(5)  # Wait for 1 second
         else:
             print("Access denied")  # Print "Access denied" if no match is found
             # GPIO.output(relay_pin, 0)  # Set the relay_pin output to 0 (
