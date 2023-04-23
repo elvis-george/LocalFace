@@ -1,29 +1,20 @@
-# FaceDetect
+# Local Face
 
-Modify the python dictionary in the *Detect.py files to add users and user picture/pictures. .jpg files should be in the main respository not subfolder
+## Adding Valid Users
 
-"PI"
------------------------------
-pip install -r piREQ.txt 
+1. Add `.jpg` photos of valid users to the `valid_photoID` repository.
+2. Modify the python dictionary in the `Detect.py` files to add a single dictionary entry for each user. Be sure to include the working directory path to the user photo/photos. Including multiple photos can increase detection reliability.
 
-or 
+**Note**: `.jpg` files should be in the main repository, not a subfolder.
 
-pip3 install -r piREQ.txt 
+## Running the Program
 
-then
+### Raspberry Pi
 
-python3 piDetect.py
+1. Run `pip install -r piREQ.txt` or `pip3 install -r piREQ.txt` depending on your version of pip.
+2. Run `python3 piDetect.py`.
 
+### Mac
 
-"MAC"
------------------------------
-pip install -r macREQ.txt 
-
-or 
-
-pip3 install -r macREQ.txt 
-
-then 
-
-python3 piDetect.py
-
+1. Run `pip install -r macREQ.txt` or `pip3 install -r macREQ.txt` depending on your version of pip.
+2. Run `python3 piDetect.py`.
