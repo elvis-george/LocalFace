@@ -1,6 +1,6 @@
 # FaceDetect
 
-modify the python dictionary in the *Detect.py files to add users and user picture/pictures 
+Modify the python dictionary in the *Detect.py files to add users and user picture/pictures. .jpg files should be in the main respository not subfolder
 
 "PI"
 -----------------------------
