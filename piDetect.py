@@ -2,16 +2,48 @@ import face_recognition
 import cv2
 import numpy as np
 from time import sleep
+import wiringpi
 
+lockState = 'locked'
+wiringpi.wiringPiSetupGpio()
+wiringpi.pinMode(0, 1)
+wiringpi.pinMode(2, 1)
+wiringpi.pinMode(3, 1)
+wiringpi.digitalWrite(0, 1)
+
+def unlock():
+    global lockState
+    if lockState == 'unlocked':
+        print('ERROR: already unlocked!')
+        return False
+    else:
+        wiringpi.digitalWrite(2, 1)
+        sleep(2.5)
+        wiringpi.digitalWrite(2, 0)
+        lockState = 'unlocked'
+        return True
+
+def lock():
+    global lockState
+    if lockState == 'locked':
+        print('ERROR: already locked!')
+        return False
+    else:
+        wiringpi.digitalWrite(3, 1)
+        sleep(2.5)
+        wiringpi.digitalWrite(3, 0)
+        lockState = 'locked'
+        return True
+
+#add users and images
 allowed_users = {
     "user1": [
-        "/Users/localhost/ElvisDetect/elvisDetect/user1.jpg",
-        "/Users/localhost/ElvisDetect/elvisDetect/user2.jpg",
-        "/Users/localhost/ElvisDetect/elvisDetect/user3.jpg",
-        "/Users/localhost/ElvisDetect/elvisDetect/user4.jpg"
+        "/home/localhost/elvisDetect/valid_photoID/user1.jpg",
+        "/home/localhost/elvisDetect/valid_photoID/user2.jpg",
+        "/home/localhost/elvisDetect/valid_photoID/user3.jpg",
+        "/home/localhost/elvisDetect/valid_photoID/user4.jpg"
     ]
 }
-#bug fix
 
 known_face_encodings = []
 known_face_names = []
@@ -52,9 +84,11 @@ while True:
             name = known_face_names[first_match_index]
 
             print(f"Simulated access granted for {name}")
-            sleep(5)
+            sleep(1)
+
         else:
             print("Access denied")
+            lock()
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
