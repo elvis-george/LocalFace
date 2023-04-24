@@ -69,6 +69,7 @@ for name, image_files in allowed_users.items():
         known_face_encodings.append(face_encoding)
         known_face_names.append(name)
 
+lock()
 # Start an infinite loop that captures video frames continuously
 while True:
     ret, frame = camera.read()
