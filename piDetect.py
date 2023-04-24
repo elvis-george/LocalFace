@@ -6,7 +6,7 @@ from time import sleep
 import wiringpi
 
 lockState = 'locked'
-wiringpi.wiringPiSetupSys()
+wiringpi.wiringPiSetup()
 wiringpi.pinMode(0, 1)
 wiringpi.pinMode(2, 1)
 wiringpi.pinMode(3, 1)
