@@ -84,11 +84,13 @@ while True:
             name = known_face_names[first_match_index]
 
             print(f"Simulated access granted for {name}")
+            unlock()
             sleep(1)
 
         else:
             print("Access denied")
             lock()
+            sleep(1)
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
