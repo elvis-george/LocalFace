@@ -1,6 +1,7 @@
 import face_recognition
 import cv2
 import numpy as np
+import time
 from time import sleep
 import wiringpi
 
@@ -17,8 +18,10 @@ def unlock():
         print('ERROR: already unlocked!')
         return False
     else:
-        wiringpi.digitalWrite(2, 1)
-        sleep(2.5)
+        t_end = time.time() + 2.5
+        while time.time() < t_end:
+            wiringpi.digitalWrite(2, 1)
+
         wiringpi.digitalWrite(2, 0)
         lockState = 'unlocked'
         return True
@@ -29,12 +32,13 @@ def lock():
         print('ERROR: already locked!')
         return False
     else:
-        wiringpi.digitalWrite(3, 1)
-        sleep(2.5)
+        t_end = time.time() + 2.5
+        while time.time() < t_end:
+            wiringpi.digitalWrite(3, 1)
+
         wiringpi.digitalWrite(3, 0)
         lockState = 'locked'
         return True
-
 #add users and images
 allowed_users = {
     "user1": [
