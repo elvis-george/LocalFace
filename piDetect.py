@@ -5,7 +5,7 @@ from time import sleep
 import wiringpi
 
 lockState = 'locked'
-wiringpi.wiringPiSetupGpio()
+wiringpi.wiringPiSetupSys()
 wiringpi.pinMode(0, 1)
 wiringpi.pinMode(2, 1)
 wiringpi.pinMode(3, 1)
@@ -85,7 +85,7 @@ while True:
 
             print(f"Simulated access granted for {name}")
             unlock()
-            sleep(1)
+            sleep(5)
 
         else:
             print("Access denied")
