@@ -90,6 +90,7 @@ while True:
             print(f"Simulated access granted for {name}")
             unlock()
             sleep(5)
+            lock()
 
         else:
             print("Access denied")
